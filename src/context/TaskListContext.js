@@ -1,16 +1,51 @@
 import React, { createContext, useState } from "react";
+import { v4 as uuid } from "uuid";
 
 export const TaskListContext = createContext();
 
 const TaskListContextProvider = (props) => {
-  const [tasks, setTasks] = useState([
-    { name: "Read the book", id: 1 },
-    { name: "Wash the book", id: 2 },
-    { name: "Write the book", id: 3 },
-  ]);
+  const [tasks, setTasks] = useState([{ name: "Eat a kebab", id: 1 }]);
+
+  const addTask = (name) => {
+    setTasks([...tasks, { name, id: uuid() }]);
+  };
+
+  const removeTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  const clearList = () => {
+    setTasks([]);
+  };
+
+  const [editItem, setEditItem] = useState(null);
+
+  const findItem = (id) => {
+    const item = tasks.find((task) => task.id === id);
+    setEditItem(item);
+  };
+
+  const editTask = (name, id) => {
+    const newTasks = tasks.map((task) =>
+      task.id === id ? { name, id } : task
+    );
+
+    setTasks(newTasks);
+    setEditItem(null);
+  };
 
   return (
-    <TaskListContext.Provider value={{ tasks }}>
+    <TaskListContext.Provider
+      value={{
+        tasks,
+        addTask,
+        removeTask,
+        clearList,
+        findItem,
+        editTask,
+        editItem,
+      }}
+    >
       {props.children}
     </TaskListContext.Provider>
   );

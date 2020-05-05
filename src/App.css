@@ -84,8 +84,8 @@
   font-family: "Josefin Sans", serif;
   font-size: 15px;
   color: #ccc;
-  background-color: #1d222b;
-  border: 1px solid #444;
+  background-color: #47503a;
+  border: 1px solid rgb(130, 130, 130);
   outline: none;
   border-radius: 20px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -101,8 +101,8 @@
 
 .add-task-btn {
   min-width: 100px;
-  background-color: #790e43;
-  color: rgb(154, 4, 4);
+  background-color: #07014b;
+  color: rgb(205, 205, 205);
   border: none;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
@@ -145,7 +145,7 @@
 .clear-btn {
   width: 100px;
   height: 35px;
-  background-color: #790e43;
+  background-color: #07014b;
   color: #ccc;
   border: none;
   font-family: "Montserrat", sans-serif;
